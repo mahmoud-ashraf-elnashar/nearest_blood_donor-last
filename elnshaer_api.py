@@ -35,16 +35,16 @@ label_encoder = preprocessing.LabelEncoder()
 
 
 class MyObject:
-    def __init__(self, longitude, Latitude, Country,Governorate,first_name,last_name,phone,blood_type,distance):
-        self.longitude = longitude
+    def __init__(self, Longitude, Latitude, Country,Governorate,First_name,Last_name,Phone,Blood_type,Distance):
+        self.Longitude = Longitude
         self.Latitude = Latitude
         self.Country = Country
         self.Governorate = Governorate
-        self.first_name = first_name
-        self.last_name = last_name
-        self.phone = phone
-        self.blood_type = blood_type
-        self.distance = distance
+        self.First_name = First_name
+        self.Last_name = Last_name
+        self.Phone = Phone
+        self.Blood_type = Blood_type
+        self.Distance = Distance
 
 
 # Define the prediction endpoint
