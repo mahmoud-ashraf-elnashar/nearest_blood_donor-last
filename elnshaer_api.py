@@ -35,11 +35,15 @@ label_encoder = preprocessing.LabelEncoder()
 
 
 class MyObject:
-    def __init__(self, longitude, Latitude, Country,Governorate,distance):
+    def __init__(self, longitude, Latitude, Country,Governorate,first_name,last_name,phone,blood_type,distance):
         self.longitude = longitude
         self.Latitude = Latitude
         self.Country = Country
         self.Governorate = Governorate
+        self.first_name = first_name
+        self.last_name = last_name
+        self.phone = phone
+        self.blood_type = blood_type
         self.distance = distance
 
 
@@ -63,7 +67,7 @@ def predict(l1: float, l2: float,curr: int):
     for index in range(0,len(sorted_df['x1'])):
       nearest_index = sorted_df.index[index]
       nearest_value=list(sorted_df.iloc[index])
-      obj = MyObject(nearest_value[0], nearest_value[1], nearest_value[2],nearest_value[3],nearest_value[4]) 
+      obj = MyObject(nearest_value[0], nearest_value[1], nearest_value[2],nearest_value[3],nearest_value[4],nearest_value[5],nearest_value[6],nearest_value[7],nearest_value[8]) 
       the_nearst_list.append(obj)
       
 
