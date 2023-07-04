@@ -86,7 +86,7 @@ def predict(l1: float, l2: float,curr: int,B:str):
       the_nearst_list.append(obj)
       
 
-    return  the_nearst_list[curr]
+    return  the_nearst_list[curr,B]
 
 
 
