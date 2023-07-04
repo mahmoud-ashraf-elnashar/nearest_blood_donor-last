@@ -59,7 +59,7 @@ def predict(l1: float, l2: float,curr: int,B:str):
     df_copy.drop([16357, 112805, 20868, 99371, 38292, 10915, 1069, 112757, 51756, 76645, 75828, 89323, 136098, 86223, 14701, 135695, 53006], axis=0, inplace=True)
     df_copy = df_copy.dropna()
     output_knn = df_copy[df_copy['y'] == result]
-    if(B == "A+"):
+    if( B == "A+"):
       output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "B-", "B+", "AB-"])]
     elif( B =="B+"):
       output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "A-", "A+", "AB-"])]
