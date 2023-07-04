@@ -61,22 +61,22 @@ def predict(l1: float, l2: float,curr: int,B:str):
     output_knnn = df_copy[df_copy['y'] == result]
     print (output_knnn)
 
-    if B == "A+":
-        output_knn = output_knnn[~output_knnn['blood type'].isin(["AB+", "B-", "B+", "AB-"])]
-    elif B == "B+":
-        output_knn = output_knnn[~output_knnn['blood type'].isin(["AB+", "A-", "A+", "AB-"])]
-    elif B == "A-":
-        output_knn = output_knnn[~output_knnn['blood type'].isin(["AB+", "B-", "A+", "AB-", "O+", "B+"])]
-    elif B == "B-":
-        output_knn = output_knnn[~output_knnn['blood type'].isin(["AB+", "A-", "A+", "AB-", "O+", "B+"])]
-    elif B == "O+":
-        output_knn = output_knnn[~output_knnn['blood type'].isin(["AB+", "B-", "A+", "AB-", "A-", "B+"])]
-    elif B == "O-":
-        output_knn = output_knnn[~output_knnn['blood type'].isin(["AB+", "B-", "A+", "AB-", "A-", "B+", "O+"])]
-    elif B == "AB-":
-        output_knn = output_knnn[~output_knnn['blood type'].isin(["AB+", "A+", "O+", "B+"])]
+    if BOO == "A+":
+         output_knn = output_knnn[~output_knnn['blood type'].isin(["AB+", "B-", "B+", "AB-"])]
+    elif BOO == "B+":
+         output_knn = output_knnn[~output_knnn['blood type'].isin(["AB+", "A-", "A+", "AB-"])]
+    elif BOO == "A-":
+         output_knn = output_knnn[~output_knnn['blood type'].isin(["AB+", "B-", "A+", "AB-", "O+", "B+"])]
+    elif BOO == "B-":
+         output_knn = output_knnn[~output_knnn['blood type'].isin(["AB+", "A-", "A+", "AB-", "O+", "B+"])]
+    elif BOO == "O+":
+         output_knn = output_knnn[~output_knnn['blood type'].isin(["AB+", "B-", "A+", "AB-", "A-", "B+"])]
+    elif BOO == "O-":
+         output_knn = output_knnn[~output_knnn['blood type'].isin(["AB+", "B-", "A+", "AB-", "A-", "B+", "O+"])]
+    elif BOO == "AB-":
+         output_knn = output_knnn[~output_knnn['blood type'].isin(["AB+", "A+", "O+", "B+"])]
     else:
-        output_knn = output_knnn
+         output_knn = output_knnn
 
     print (output_knn)
     locations = output_knn[['x1', 'x2']].to_numpy()
