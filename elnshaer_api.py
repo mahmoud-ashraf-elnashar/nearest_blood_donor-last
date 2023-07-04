@@ -60,19 +60,19 @@ def predict(l1: float, l2: float,curr: int,B:str):
     df_copy = df_copy.dropna()
     output_knn = df_copy[df_copy['y'] == result]
     print (output_knn)
-    if( B == "A+"):
+    if B == "A+":
       output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "B-", "B+", "AB-"])]
-    elif( B =="B+"):
+    elif B =="B+":
       output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "A-", "A+", "AB-"])]
-    elif( B =="A-"):
+    elif B =="A-":
       output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "B-", "A+", "AB-","O+","B+"])]
-    elif( B =="B-"):
+    elif B =="B-":
       output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "A-", "A+", "AB-","O+","B+"])] 
-    elif( B =="O+"):
+    elif B == "O+":
       output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "B-", "A+", "AB-","A-","B+"])]
-    elif( B =="O-"):
-      output_knn1 = output_knn[~output_knn['blood type'].isin(["AB+", "B-", "A+", "AB-","A-","B+","O+"])] 
-    elif( B =="AB-"):
+    elif B =="O-":
+      output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "B-", "A+", "AB-","A-","B+","O+"])] 
+    elif B =="AB-":
       output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "A+", "O+","B+"])]  
     else : 
       output_knn = output_knn
