@@ -49,7 +49,7 @@ class MyObject:
 
 # Define the prediction endpoint
 @app.post("/prediction")
-def predict(l1: float, l2: float,curr: int):
+def predict(l1: float, l2: float,curr: int,B=""):
     # Make a prediction using the KNN model
     result=loadded_model.predict(np.array([l1,l2]).reshape(1, -1))
     result=loadded_encoder.inverse_transform([result])[0]
@@ -59,7 +59,22 @@ def predict(l1: float, l2: float,curr: int):
     df_copy.drop([16357, 112805, 20868, 99371, 38292, 10915, 1069, 112757, 51756, 76645, 75828, 89323, 136098, 86223, 14701, 135695, 53006], axis=0, inplace=True)
     df_copy = df_copy.dropna()
     output_knn = df_copy[df_copy['y'] == result]
-    print (output_knn)
+    if(B =="A+"):
+      output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "B-", "B+", "AB-"])]
+    elif( B =="B+"):
+      output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "A-", "A+", "AB-"])]
+    elif( B =="A-"):
+      output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "B-", "A+", "AB-","O+","B+"])]
+    elif( B =="B-"):
+      output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "A-", "A+", "AB-","O+","B+"])] 
+    elif( B =="O+"):
+      output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "B-", "A+", "AB-","A-","B+"])]
+    elif( B =="O-"):
+      output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "B-", "A+", "AB-","A-","B+","O+"])] 
+    elif( B =="AB-"):
+      output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "A+", "O+","B+"])]  
+    else : 
+      output_knn = output_knn
     output_knn['diff'] = ((abs(output_knn['x1'] - l1) + abs(output_knn['x2'] - l2))*60)*1.1515
     sorted_df = output_knn.sort_values('diff')
     print (sorted_df)
