@@ -61,25 +61,25 @@ def predict(l1: float, l2: float,curr: int,B:str):
     output_knn = df_copy[df_copy['y'] == result]
     print (output_knn)
     if( B == "A+"):
-      output_knn1 = output_knn[~output_knn['blood type'].isin(["AB+", "B-", "B+", "AB-"])]
+      output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "B-", "B+", "AB-"])]
     elif( B =="B+"):
-      output_knn1 = output_knn[~output_knn['blood type'].isin(["AB+", "A-", "A+", "AB-"])]
+      output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "A-", "A+", "AB-"])]
     elif( B =="A-"):
-      output_knn1 = output_knn[~output_knn['blood type'].isin(["AB+", "B-", "A+", "AB-","O+","B+"])]
+      output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "B-", "A+", "AB-","O+","B+"])]
     elif( B =="B-"):
-      output_knn1 = output_knn[~output_knn['blood type'].isin(["AB+", "A-", "A+", "AB-","O+","B+"])] 
+      output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "A-", "A+", "AB-","O+","B+"])] 
     elif( B =="O+"):
-      output_knn1 = output_knn[~output_knn['blood type'].isin(["AB+", "B-", "A+", "AB-","A-","B+"])]
+      output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "B-", "A+", "AB-","A-","B+"])]
     elif( B =="O-"):
       output_knn1 = output_knn[~output_knn['blood type'].isin(["AB+", "B-", "A+", "AB-","A-","B+","O+"])] 
     elif( B =="AB-"):
-      output_knn1 = output_knn[~output_knn['blood type'].isin(["AB+", "A+", "O+","B+"])]  
+      output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "A+", "O+","B+"])]  
     else : 
-      output_knn1 = output_knn
+      output_knn = output_knn
 
-    print (output_knn1)
-    output_knn['diff'] = ((abs(output_knn1['x1'] - l1) + abs(output_knn1['x2'] - l2))*60)*1.1515
-    sorted_df = output_knn1.sort_values('diff')
+    print (output_knn)
+    output_knn['diff'] = ((abs(output_knn['x1'] - l1) + abs(output_knn['x2'] - l2))*60)*1.1515
+    sorted_df = output_knn.sort_values('diff')
     print (sorted_df)
     the_nearst_list=[]
     for index in range(0,len(sorted_df['x1'])):
