@@ -49,7 +49,7 @@ class MyObject:
 
 # Define the prediction endpoint
 @app.post("/prediction")
-def predict(l1: float, l2: float,curr: int,B:Str):
+def predict(l1: float, l2: float,curr: int,B:str):
     # Make a prediction using the KNN model
     result=loadded_model.predict(np.array([l1,l2]).reshape(1, -1))
     result=loadded_encoder.inverse_transform([result])[0]
