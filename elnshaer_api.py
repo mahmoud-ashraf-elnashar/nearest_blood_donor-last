@@ -76,6 +76,8 @@ def predict(l1: float, l2: float,curr: int,B:str):
       output_knn = output_knn[~output_knn['blood type'].isin(["AB+", "A+", "O+","B+"])]  
     else : 
       output_knn = output_knn
+
+    print (output_knn)
     output_knn['diff'] = ((abs(output_knn['x1'] - l1) + abs(output_knn['x2'] - l2))*60)*1.1515
     sorted_df = output_knn.sort_values('diff')
     print (sorted_df)
